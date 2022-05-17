@@ -129,14 +129,14 @@ if __name__ == '__main__':
     parser.add_argument('--output-file', dest='output_file', default='output.txt')
     args = parser.parse_args()
     with open(args.input_file) as input_file:
-        cipher_text = ''
         orig_text = input_file.readlines()
-        if args.option == 'encode':
-            cipher_text = encode(args.cipher, orig_text, args.key)
-        elif args.option == 'decode':
-            cipher_text = decode(args.cipher, orig_text, args.key)
-        elif args.option == 'hack':
-            cipher_text = hack_caesar(orig_text)
-        with open(args.output_file, 'w') as output_file:
-            orig_stdout = sys.stdout
-            output_file.write(cipher_text)
+    cipher_text = ''
+    if args.option == 'encode':
+        cipher_text = encode(args.cipher, orig_text, args.key)
+    elif args.option == 'decode':
+        cipher_text = decode(args.cipher, orig_text, args.key)
+    elif args.option == 'hack':
+        cipher_text = hack_caesar(orig_text)
+    with open(args.output_file, 'w') as output_file:
+        orig_stdout = sys.stdout
+        output_file.write(cipher_text)
