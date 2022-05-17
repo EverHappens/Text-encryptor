@@ -128,9 +128,10 @@ if __name__ == '__main__':
     parser.add_argument('--input-file', dest='input_file', default='input.txt')
     parser.add_argument('--output-file', dest='output_file', default='output.txt')
     args = parser.parse_args()
+    orig_text = ''
+    cipher_text = ''
     with open(args.input_file) as input_file:
         orig_text = input_file.readlines()
-    cipher_text = ''
     if args.option == 'encode':
         cipher_text = encode(args.cipher, orig_text, args.key)
     elif args.option == 'decode':
